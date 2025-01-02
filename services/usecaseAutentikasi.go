@@ -6,6 +6,7 @@ import (
 	"latihanotp/models"
 	"latihanotp/repositories"
 	"math/rand"
+	"os"
 	"strconv"
 	"time"
 
@@ -45,7 +46,7 @@ func (s *servicesAutentikasi) SendOtpGmail(email string) (string, error) {
 	plaintextcontext := " Otp Kamu " + otpStr
 	htmlContent := "<strong>Otp kamu adalah " + otpStr + "</strong>"
 	message := mail.NewSingleEmail(from, subject, to, plaintextcontext, htmlContent)
-	ApiClient := sendgrid.NewSendClient("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")
+	ApiClient := sendgrid.NewSendClient(os.Getenv("SENDGRID_API_KEY"))
 	response, err := ApiClient.Send(message)
 	if err != nil {
 		return "", err

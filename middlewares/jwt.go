@@ -1,6 +1,7 @@
 package middlewares
 
 import (
+	"os"
 	"strings"
 	"time"
 
@@ -8,7 +9,7 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-var jwtKey = []byte("123456")
+var jwtKey = []byte(os.Getenv("JWT_KEY"))
 
 type Claims struct {
 	UserID int `json:"userID"`
