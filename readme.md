@@ -4,4 +4,4 @@
 - Menggunakan Jwtdgrijalva : https://github.com/dgrijalva/jwt-go
 - Framework : Gin 
 - ORM : Gorm (mysql)
-Dev : Michael
+- Dev : Michael
